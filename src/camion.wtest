@@ -1,0 +1,22 @@
+import cosas.*
+import camion.*
+
+describe "camion" {
+
+	test "puedeCircularEnRuta"{
+		camion.cargar(knightRider)
+		camion.cargar(bumblebee)
+		assert.notThat(camion.puedeCircularEnRuta(20))
+		
+		bumblebee.transformar()
+		assert.that(camion.puedeCircularEnRuta(20))
+	}
+	
+	test "cantidad de bultos"{
+		camion.cargar(knightRider)
+		camion.cargar(bumblebee)
+		camion.cargar(paqueteDeLadrillos)
+		assert.equals(5,camion.totalBultos())
+	}
+
+}
