@@ -1,0 +1,58 @@
+import cosas.*
+
+describe "tests de las cosas" {
+
+	test "peso de knightrider" {
+		assert.equals(500, knightRider.peso())
+	}
+	
+	test "nivelPeligrosidad de knightrider"{
+		assert.equals(10, knightRider.nivelPeligrosidad())
+	}
+	
+	test "peso de bumblebee"{
+		assert.equals(800, bumblebee.peso())
+	}
+	
+	test "nivel de peligrosidad de bumblebee sin transformar"{
+		assert.equals(15,bumblebee.nivelPeligrosidad())
+	}
+	
+	test "nivel de peligrosidad de bumblebee transformado"{
+		bumblebee.transformar()
+		assert.equals(30,bumblebee.nivelPeligrosidad())
+	}
+	test "peso de paqueteDeLadrillos"{
+		paqueteDeLadrillos.cantidadDeLadrillos(100)
+		assert.equals(200,paqueteDeLadrillos.peso())
+	}
+	
+	test "nivel de peligrosidad de paqueteDeLadrillos"{
+		assert.equals(2,paqueteDeLadrillos.nivelPeligrosidad())
+	}
+	
+	test "peso de arenaAGranel"{
+		assert.equals(50,arenaAGranel.peso(50))
+	}
+	
+	test "nivel de peligrosidad de bateriaAntiaerea con misiles"{
+		assert.equals(100,bateriaAntiaerea.nivelPeligrosidad())
+	}
+	
+	test "nivel de peligrosidad de bateriaAntiaerea sin misiles"{
+		bateriaAntiaerea.sacarMisiles()
+		assert.equals(0,bateriaAntiaerea.nivelPeligrosidad())
+	}
+	
+	test "peso de contenedorPortuario"{
+		contenedorPortuario.agregarContenido(bumblebee)
+		assert.equals(100 + bumblebee.peso(),contenedorPortuario.peso())
+	}
+	
+	test "nivel de peligrosidad de contenedorPortuario"{
+		contenedorPortuario.agregarContenido(arenaAGranel)
+		contenedorPortuario.agregarContenido(bumblebee)
+		assert.equals(1,contenedorPortuario.nivelPeligrosidad())
+	} //CONSULTAR METHOD: El metodo me devuelve una COSA, no el numero que espero
+	
+}
